@@ -242,6 +242,17 @@
     color: inherit;
     padding: 0 0.5em 0.5em;
 
+    &::before {
+      content: "";
+      width: 0;
+      height: 2px;
+      background-color: $c-purple;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transition: width 0.3s ease;
+    }
+
     &::after {
       content: "";
       position: absolute;
@@ -279,6 +290,13 @@
       &::after {
         opacity: 1;
         background-color: $c-purple;
+      }
+
+      &::before {
+        background-color: $c-purple;
+        width: 100%;
+        right: auto;
+        left: 0;
       }
     }
   }
