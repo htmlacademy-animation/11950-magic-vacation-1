@@ -159,6 +159,13 @@
     border-radius: 50%;
     line-height: 5rem;
     text-align: center;
+    transform: scale(0);
+    opacity: 0;
+    animation-name: showItem;
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(.74,.77,.61,1.51);
+    animation-fill-mode: forwards;
+
 
     @media (max-width: $tablet) and (orientation: portrait) {
       top: 1rem;
@@ -179,10 +186,45 @@
 
   p {
     margin: 0;
+    opacity: 0;
+    animation-name: showItemText;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    transform: translateX(25px);
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);
     }
+  }
+}
+
+.rules__item:nth-child(2) {
+  &::before {
+    animation-delay: 0.2s;
+  }
+
+  p {
+    animation-delay: 0.2s;
+  }
+}
+
+.rules__item:nth-child(3) {
+  &::before {
+    animation-delay: 0.4s;
+  }
+
+  p {
+    animation-delay: 0.4s;
+  }
+}
+
+.rules__item:nth-child(4) {
+  &:before {
+    animation-delay: 0.6s;
+  }
+
+  p {
+    animation-delay: 0.6s;
   }
 }
 
@@ -209,5 +251,19 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     bottom: 2rem;
     right: 1.5rem;
+  }
+}
+
+@keyframes showItem {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes showItemText {
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
